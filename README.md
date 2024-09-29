@@ -12,6 +12,7 @@ ng serve visualizer
 
 ## Examples
 
+![Picture displaying a problem](images/screenshot6.png)
 ![Picture portraying calculation](images/screenshot4.png)
 ![Picture showing solution](images/screenshot5.png)
 
