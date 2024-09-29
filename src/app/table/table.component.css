@@ -1,0 +1,47 @@
+table{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    background-clip: padding-box;
+    table-layout: fixed;
+    font-size: 0.9vw;
+}
+
+#headerRow{
+    /*height: 3em;*/
+    height: 2.5vw;
+    background-color: #a5d6a7;
+}
+
+th{
+    /*width: 4em;*/
+}
+
+thead>tr>th{
+    border-right: black 1px solid;
+}
+
+thead>tr>th:first-child{
+    border: none;
+}
+
+td{
+    position: relative;
+    border-right: black 1px solid;
+    background-clip: padding-box;
+    /*width: 4em;*/
+}
+
+/*td{
+    position: relative;
+}*/
+
+tr{
+    /*border: none;*/
+}
+
+#jednotka{
+    height: 100%;
+    width: 100%;
+}

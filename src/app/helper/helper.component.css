@@ -1,0 +1,49 @@
+div{
+    height: 100%;
+    width: 100%;
+}
+
+#helperDiv{
+    height: auto;
+    width: auto;
+}
+
+#buttons{
+    height: auto;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+button{
+    margin-right: 10px;
+}
+
+mat-grid-tile{
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+mat-grid-list{
+    box-shadow: 2px 2px 5px black;
+}
+
+mat-button-toggle-checked{
+    color: blue !important;
+}
+
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: #a5d6a7;
+}
+
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #a5d6a7;
+}
+
+:host ::ng-deep .mat-slide-toggle.mat-disabled .mat-slide-toggle-thumb {
+    background-color: #a5d6a7;
+}
+
+:host ::ng-deep .mat-slide-toggle.mat-disabled .mat-slide-toggle-bar {
+    background-color: #a5d6a7;
+}

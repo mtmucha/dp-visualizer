@@ -1,0 +1,43 @@
+<div id="stock">
+
+    <h1>
+        {{nadpis}}
+    </h1>
+    <div class="zadanie" [innerHTML]="zadanie">
+        
+    </div>
+
+    <div class="userInput">
+        <div class="userInputItems">
+            <app-items [(items)]="items" [problemType]="problemType" [started]="started">
+
+            </app-items>
+        </div>
+
+        <div class="userInputDecisionRange">
+            <app-range-picker [(decisionMin)]="decisionMin" [(decisionMax)]="decisionMax"
+                [days]="days" (daysChange)="onDaysChange($event)"
+                [(capacity)]="capacity"
+                [(startingState)]="startingState"
+                [(endingState)]="endingState"
+                [problemType]="problemType"
+                [started]="started">
+            </app-range-picker>
+        </div>
+    </div>
+
+    <app-helper id="universal2" 
+        [items]="items"
+        [decisionMin]="decisionMin"
+        [decisionMax]="decisionMax"
+        [days]="days"
+        [capacity]="capacity"
+        [startingState]="startingState"
+        [endingState]="endingState"
+        [min]="true"
+        [fixedDecisions]="true"
+        [problemType]="problemType"
+        [min]="min"
+        (started)="started = $event">
+    </app-helper>
+</div>

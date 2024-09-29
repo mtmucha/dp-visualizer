@@ -1,0 +1,124 @@
+<div id="listDiv">
+
+    <div id="listHeader">
+        <p>
+            <b>Prechody : </b>
+        </p>
+    </div>
+
+    <mat-list role="list" #cmp>
+        <mat-list-item *ngFor="let step of stepsList.slice().reverse();index as i" (mouseover)="onMouseOver(step.id)" (mouseout)="onMouseOut()" [@highlighted]="step.id == selectedIntex ? 'high' : 'normal'">
+            <div class="stepContent" id="stepContent{{i}}">
+                <p id="stepTimeState">
+                    <ng-container *ngIf="forward; then forwardIndexBlock; else backwardIndexBlock">
+                    </ng-container>
+
+                    <ng-template #forwardIndexBlock>
+                        <b><span>t = {{step.nextDay}}</span></b>
+                        <br>
+                        <b><span>s<sub>{{step.currentDay}}</sub> = {{step.currentState}}</span></b>
+                        <br>
+                        <b><span>x<sub>{{step.nextDay}}</sub> = {{step.quantity}}</span></b>
+                    </ng-template>
+
+                    <ng-template #backwardIndexBlock>
+                        <b><span>t = {{step.currentDay}}</span></b>
+                        <br>
+                        <b><span>s<sub>{{step.currentDay}}</sub> = {{step.nextState | infiPipe}}</span></b>
+                        <br>
+                        <b><span>x<sub>{{step.currentDay}}</sub> = {{step.quantity}}</span></b>
+                    </ng-template>
+
+                </p>
+                <p id="stepText">
+                <span>
+                    <ng-container *ngIf="problemType == 1; then weightBlock; else nonWeightBlock">
+                    </ng-container>
+                    <ng-template #nonWeightBlock>
+                        <ng-container *ngIf="forward; then nonWeightBlockForward; else nonWeightBlockBackward">
+
+                        </ng-container >
+
+                        <ng-template #nonWeightBlockBackward>
+                            <span><b><span>p<sub>{{step.currentDay}}</sub></span></b>(s<sub>{{step.currentDay}}</sub>, x<sub>{{step.currentDay}}</sub>)=</span>
+                            <br>
+                            <ul>
+                            <li>
+                                    <span>s<sub>{{step.currentDay}}</sub> + x<sub>{{step.currentDay}}</sub> - d<sub>{{step.currentDay}}</sub><br></span>
+                                </li>
+                                <li>
+                                    <span>{{step.nextState | infiPipe : step.valid}} + {{step.quantity}} - {{step.demand}} </span>
+                                </li>
+                                <li>
+                                    <b>{{step.currentState | infiPipe : step.valid}} </b>
+                                </li>
+                            </ul>
+                        </ng-template>
+
+
+                        <ng-template #nonWeightBlockForward>
+                            <span><b><span>p<sub>{{step.nextDay}}</sub></span></b>(s<sub>{{step.currentDay}}</sub>, x<sub>{{step.nextDay}}</sub>)=</span>
+                            <br>
+                            <ul>
+                            <li>
+                                    <span>s<sub>{{step.currentDay}}</sub> + x<sub>{{step.nextDay}}</sub> - d<sub>{{step.nextDay}}</sub><br></span>
+                                </li>
+                                <li>
+                                    <span>{{step.currentState}} + {{step.quantity}} - {{step.demand}} </span>
+                                </li>
+                                <li>
+                                    <b>{{step.nextState | infiPipe: step.valid}} </b>
+                                </li>
+                            </ul>
+                        </ng-template>
+                    </ng-template>
+                    <ng-template #weightBlock>
+                        <ng-container *ngIf="forward; then weightBlockForward; else weightBlockBackward">
+                        </ng-container>
+
+                        <ng-template #weightBlockForward>
+                            <span><b><span>p<sub>{{step.nextDay}}</sub></span></b>(s<sub>{{step.currentDay}}</sub>, x<sub>{{step.nextDay}}</sub>)=</span>
+                            <br>
+                            <ul>
+                            <li>
+                                    <span>s<sub>{{step.currentDay}}</sub> + x<sub>{{step.nextDay}}</sub> * w<sub>{{step.nextDay}}</sub><br></span>
+                                </li>
+                                <li>
+                                    <span>{{step.currentState}} + {{step.quantity}} * {{step.weight}}</span>
+                                </li>
+                                <li>
+                                    <b>{{step.nextState | infiPipe}} </b>
+                                </li>
+                            </ul>
+                        </ng-template>
+
+                        <ng-template #weightBlockBackward>
+                            <span><b><span>p<sub>{{step.currentDay}}</sub></span></b>(s<sub>{{step.currentDay}}</sub>, x<sub>{{step.currentDay}}</sub>)=</span>
+                            <br>
+                            <ul>
+                            <li>
+                                    <span>s<sub>{{step.currentDay}}</sub> + x<sub>{{step.currentDay}}</sub> * w<sub>{{step.currentDay}}</sub><br></span>
+                                </li>
+                                <li>
+                                    <span>{{step.nextState | infiPipe }} + {{step.quantity}} * {{step.weight}}</span>
+                                </li>
+                                <li>
+                                    <b>{{step.currentState | infiPipe: step.valid}} </b>
+                                </li>
+                            </ul>
+                        </ng-template>
+
+                    </ng-template>
+                </span>
+                </p>
+                <div id="mark">
+                    <ng-container *ngIf="step.valid; then thenBlock else elseBlock">
+                    </ng-container>
+                    <ng-template #thenBlock><p style="color: green">✔</p></ng-template>
+                    <ng-template #elseBlock><p style="color: red">✖</p></ng-template>
+                </div>
+            </div>
+        </mat-list-item>
+    </mat-list>
+</div>
+

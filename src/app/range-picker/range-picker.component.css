@@ -1,0 +1,99 @@
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input{
+  border: none;
+  /*margin-bottom: 5px;*/
+  margin-bottom: 0.2vw;
+  border-bottom: solid 1px;
+  border-color: white;
+  max-width: 50%;
+}
+
+input:focus{
+  outline-width: 0px;
+}
+
+input:disabled{
+  background-color: white;
+  color: black;
+}
+
+div{
+  box-sizing: border-box;
+}
+
+.inputCard{
+  max-width: 8vw;
+  max-height: 8vw;
+  border: black 1px solid;
+  box-shadow: 1px 1px 1px black; 
+  display: flex;
+  flex-direction: column;
+}
+
+
+input{
+  width: 4vw;
+  font-size: 0.9vw;
+  padding: 0px;
+  font-size: 0.9vw;
+  height: 2vw;
+  margin-top: 0px;
+
+  text-align: center;
+
+}
+
+p{
+  /*padding: 5px;*/
+  padding: 0.1vw;
+  margin: 0px;
+  font: 0.9vw;
+}
+
+.headerPart{
+  background-color: #a5d6a7;
+  text-align: center;
+  font-size: 1vw;
+  flex: 1 1 0.9vw;
+}
+
+.inputPart{
+  text-align: center;
+  flex: 6 6 auto;
+  min-height: 1px;
+  display: flex;
+  justify-content: center;
+}
+
+
+#rangePicks{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+
+/*class{
+  background-color: red;
+}*/
+
+.inputUnderline{
+  /*text-decoration: underline;*/
+  /*border-bottom: solid #CCC 1px;*/
+  border-color: #a5d6a7;
+}
+
+.noInputUnderline{
+  text-decoration: none;
+  border-color: white;
+  /*border-bottom: solid yellow 1px;*/
+}

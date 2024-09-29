@@ -1,0 +1,17 @@
+.userInput{
+    display: flex;
+    flex-direction: row;
+    width: 40vw;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 1vw;
+    margin-top: 1vw;
+}
+
+.userInputItems{
+    flex: 1 1 20vw;
+}
+
+.userInputDecisionRange{
+    flex: 1 1 20vw;
+}

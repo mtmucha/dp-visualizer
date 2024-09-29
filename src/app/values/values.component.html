@@ -1,0 +1,116 @@
+<div id="wholeDiv" >
+
+    <div id="valuesHeader">
+        <p>
+        </p>
+    </div>
+    <div id="valuesContent" *ngIf="step.id >= 0">
+    <p>
+        <span><b><span>B<sub>{{step.currentDay}}</sub></span></b>(s<sub>{{step.currentDay}}</sub>) = {{step.oldNextValue | infiPipe}}</span> <br>
+        <span>
+           <b>B<sub>{{step.currentDay + 1}}</sub></b>(s<sub>{{step.currentDay + 1}}</sub>)
+           <ul>
+               <li>
+                   min{{'{'}}
+                   f<sub>{{step.currentDay}}</sub>(s<sub>{{step.currentDay}}</sub>, x<sub>{{step.currentDay}}</sub>) + 
+                   B<sub>{{step.currentDay}}</sub>(s<sub>{{step.currentDay}}</sub>)<b>,</b> 
+                   B<sub>{{step.nextDay}}</sub>(s<sub>{{step.nextDay}}</sub>)
+                   {{'}'}}
+               </li>
+               <li>
+                   min{{'{'}}
+                   (x<sub>{{step.currentDay}}</sub> * c<sub>{{step.currentDay}}</sub>) + 
+                   B<sub>{{step.currentDay}}</sub>s<sub>{{step.currentDay}}</sub><b>,</b> 
+                   B<sub>{{step.nextDay}}</sub>(s<sub>{{step.nextDay}}</sub>)
+                   {{'}'}}
+                </li>
+               <li>
+                    min{{'{'}}
+                    ({{step.quantity!}} * {{step.price}}) + {{step.currentValue}}<b>,</b> 
+                    {{step.oldNextValue | infiPipe}}
+                    {{'}'}}
+               </li>
+               <li>
+                   <b>{{step.nextValue == 1000 ? "∞" : step.nextValue}}</b>
+               </li>
+           </ul>
+        </span>
+        <br>
+        </p>
+    <div id="lineBreak">
+
+    </div>
+    <ng-container>
+
+    </ng-container>
+    </div>
+</div>
+
+<ng-template #stock>
+    <p>
+        <b><span><span>x<sub>{{step.currentDay}}</sub></span> ∈ P<sub>{{step.currentDay}}</sub>(s<sub>{{step.currentDay}}</sub>) </span> :</b>
+        <span>
+            <ul id="nn">
+                <li>
+                    x<sub>{{step.currentDay}}</sub> ∈ {{'<'}} max {{'{'}} 0, d<sub>{{step.currentDay}}</sub> - s<sub>{{step.currentDay}}</sub> {{'}'}}, k - s<sub>{{step.currentDay}}</sub>>
+                </li>
+                <li>
+                    x<sub>{{step.currentDay}}</sub> ∈ {{'<'}} max {{'{'}} 0, {{step.demand!}} - {{step.currentState}} {{'}'}}, 4 - s<sub>{{step.currentDay}}</sub>>
+                </li>
+                <li>
+                    x<sub>{{step.currentDay}}</sub> ∈ {{'<'}} {{step.demand! - step.currentState}}, {{4 - step.currentState}}>
+                </li>
+                <li [ngClass]="step.valid ? 'greenText': 'redText'">
+                    <b>{{step.quantity}} ∈ {{'<'}} {{step.decisionMin}}, {{step.decisionMax}}></b>
+                </li>
+            </ul>
+        </span>
+        <br>
+    </p>
+</ng-template>
+
+<ng-template #bag>
+    <p>
+        <b><span><span>x<sub>{{step.currentDay}}</sub></span> ∈ P<sub>{{step.currentDay}}</sub>(s<sub>{{step.currentDay}}</sub>) </span> :</b>
+        <span>
+            <ul id="nn">
+                <li>
+                    x<sub>{{step.currentDay}}</sub> ∈ {{'<'}} 0, ⌊(k - s<sub>{{step.currentDay}}</sub>) / w<sub>{{step.currentDay}}</sub>⌋>
+                </li>
+                <li>
+                    x<sub>{{step.currentDay}}</sub> ∈ {{'<'}} 0, ⌊({{capacity}} - {{step.currentState}}) / {{step.weight}}⌋>
+                </li>
+                <li>
+                    x<sub>{{step.currentDay}}</sub> ∈ {{'<'}} {{step.decisionMin}}, {{step.decisionMax}}>
+                </li>
+                <li [ngClass]="step.valid ? 'greenText': 'redText'">
+                    <b>{{step.quantity}} ∈ {{'<'}} {{step.decisionMin}}, {{step.decisionMax}}></b>
+                </li>
+            </ul>
+        </span>
+        <br>
+    </p>
+</ng-template>
+
+<ng-template #tickets>
+    <p>
+        <b><span><span>x<sub>{{step.currentDay}}</sub></span> ∈ P<sub>{{step.currentDay}}</sub>(s<sub>{{step.currentDay}}</sub>) </span> :</b>
+        <span>
+            <ul id="nn">
+                <li>
+                    x<sub>{{step.currentDay}}</sub> ∈ {{'<'}} max {{'{'}} 0, d<sub>{{step.currentDay}}</sub> - s<sub>{{step.currentDay}}</sub> {{'}'}}, k - s<sub>{{step.currentDay}}</sub>>
+                </li>
+                <li>
+                    x<sub>{{step.currentDay}}</sub> ∈ {{'<'}} max {{'{'}} 0, {{step.demand!}} - {{step.currentState}} {{'}'}}, 4 - s<sub>{{step.currentDay}}</sub>>
+                </li>
+                <li>
+                    x<sub>{{step.currentDay}}</sub> ∈ {{'<'}} {{step.demand! - step.currentState}}, {{4 - step.currentState}}>
+                </li>
+                <li [ngClass]="step.valid ? 'greenText': 'redText'">
+                    <b>{{step.quantity}} ∈ {{'<'}} {{step.demand! - step.currentState}}, {{4 - step.currentState}}></b>
+                </li>
+            </ul>
+        </span>
+        <br>
+    </p>
+</ng-template>

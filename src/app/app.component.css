@@ -1,0 +1,39 @@
+#space{
+    margin: 5em;
+}
+
+#divHelper{
+    /*margin-bottom: 2%;*/
+}
+
+#first{
+    width: 90%;
+    height: auto;
+}
+
+body{
+    min-height: 100vh;
+    width: 100%;
+}
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+#base{
+    height: auto;
+    width: 100%;
+}
+
+.bottomPanel{
+    margin-top: 4vw;
+    position: static;
+}
+
+#imageDiv{
+    height: 4vw;
+    width: 4vw;
+    max-width: 4vw;
+    max-height: 4vw;
+}

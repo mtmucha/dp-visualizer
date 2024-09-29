@@ -1,0 +1,58 @@
+<div id="jednotka" class="accelerate">
+    <table id="helperTable">
+
+        <thead>
+            <tr id="headerRow">
+                <th></th>
+                <!--<th *ngIf="forward">
+                   <span>B<sub>0</sub></span> 
+                </th>-->
+
+                <ng-container *ngIf="forward; then forwardBlock; else backwardBlock">
+
+                </ng-container>
+
+                <ng-template #forwardBlock>
+                    <th *ngFor="let d of numberDayss;index as i">
+                        <span *ngIf="((i % 2) == 0) && (i != 0);else elseBlock">Z<sub>{{d}}</sub></span>
+                        <ng-template #elseBlock>
+                            <span>B<sub>{{d}}</sub></span>
+                        </ng-template>
+                    </th>
+
+                </ng-template>
+
+                <ng-template #backwardBlock>
+                    <th *ngFor="let d of numberDayss;index as i">
+                        <span *ngIf="(i % 2) == 0;else elseBlock2">B<sub>{{d}}</sub></span>
+                        <ng-template #elseBlock2>
+                            <span>Z<sub>{{d}}</sub></span>
+                        </ng-template>
+                    </th>
+                </ng-template>
+
+                <!--<th *ngIf="!forward">
+                   <span>B<sub>{{numberDayss.length / 2 + 1}}</sub></span> 
+                </th>-->
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let d of numberStates;index as i">
+                <th><span>s = {{d}}</span></th>
+
+                <ng-container *ngFor="let day of numberDayss; index as ii">
+                    <ng-container *ngIf="day % 2 == 0; then evenBlock; else oddBlock">
+                    </ng-container>
+                    <ng-template #evenBlock>
+                        <td [@high]="(i * len + ii) == currentIntex || (i * len + ii) == currentIntex2 ? 'high' : 'normal'">{{bTable[i][ii] | infiPipe}}</td>
+                    </ng-template>
+                    <ng-template #oddBlock>
+                        <td [@high]="(i * len + ii) == currentIntex || (i * len + ii) == currentIntex2 ? 'high' : 'normal2'">{{bTable[i][ii] | infiPipe}}</td>
+                    </ng-template>
+                </ng-container>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

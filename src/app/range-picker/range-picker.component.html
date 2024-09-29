@@ -1,0 +1,72 @@
+<div>
+    <div id="rangePicks">
+
+        <div class="inputCard">
+            <div class="headerPart">
+                <p>
+                    <b>x<sub>t</sub> min</b>
+                </p>
+            </div>
+            <div class="inputPart">
+                <input onClick="this.select()" [ngClass]="underline" type="number" [(ngModel)]="decisionMin" (change)="onDecisionMinChange()" [disabled]="started">
+            </div>
+
+            <div class="headerPart">
+                <p>
+                    <b>x<sub>t</sub> max</b>
+                </p>
+            </div>
+            <div class="inputPart">
+                <input onClick="this.select()" [ngClass]="underline" type="number" [(ngModel)]="decisionMax" (change)="onDecisionMaxChange()" [disabled]="started">
+            </div>
+        </div>
+
+
+        <div class="inputCard">
+            <div class="headerPart">
+                <p>
+                    <b>počiatočný stav</b>
+                </p>
+            </div>
+            <div class="inputPart">
+                <input onClick="this.select()" [ngClass]="underline" type="number" min="0" max="capacity" [(ngModel)]="startingState" (change)="onStartingStateChange()" [disabled]="started">
+            </div>
+
+            <ng-container *ngIf="problemType != 1; then endingStateBlock">
+
+            </ng-container>
+
+            <ng-template #endingStateBlock>
+            <div class="headerPart">
+                <p>
+                    <b>koncový stav</b>
+                </p>
+            </div>
+            <div class="inputPart">
+                <input onClick="this.select()" [ngClass]="underline" type="number" min="0" max="capacity" [(ngModel)]="endingState" (change)="onEndingStateChange()" [disabled]="started">
+            </div>
+            </ng-template>
+        </div>
+
+        <div class="inputCard">
+            <div class="headerPart">
+                <p>
+                    <b>t</b>
+                </p>
+            </div>
+            <div class="inputPart">
+                <input onClick="this.select()" [ngClass]="underline" type="number" min="1" max="5" [(ngModel)]="days" (change)="onDaysChange()" [disabled]="started">
+            </div>
+
+            <div class="headerPart">
+                <p>
+                    <b>k</b>
+                </p>
+            </div>
+            <div class="inputPart">
+                <input onClick="this.select()" [ngClass]="underline" type="number" min="1" max="5" [(ngModel)]="capacity" (change)="onCapacityChange()" [disabled]="started">
+            </div>
+        </div>
+
+    </div>
+</div>

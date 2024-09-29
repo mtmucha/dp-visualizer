@@ -1,0 +1,42 @@
+<div>
+<table>
+            <thead>
+            <tr>
+                <th>
+
+                </th>
+                <th *ngFor="let it of items[0];index as i">
+                    {{i + 1}}
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th>
+                    c<sub>t</sub>
+                </th>
+                <td *ngFor="let it of items[0];index as i; trackBy:trackByFn">
+                    <input onClick="this.select()" min="0" max="10" type="number" [ngClass]="underline" [(ngModel)]="items[0][i]" [disabled]="started">
+                </td>
+            </tr>
+            <tr *ngIf="problemType == 1">
+                <th>
+                    w<sub>t</sub>
+                </th>
+                <td *ngFor="let it of items[1];index as i; trackBy:trackByFn" >
+                    <input onClick="this.select()" min="0" max="10" type="number" [ngClass]="underline" [(ngModel)]="items[1][i]" [disabled]="started">
+                </td>
+            </tr>
+            <tr *ngIf="problemType != 1">
+                <th>
+                    d<sub>t</sub>
+                </th>
+                <td *ngFor="let it of items[2];index as i; trackBy:trackByFn">
+                    <input onClick="this.select()" min="0" max="10" type="number" [ngClass]="underline" [(ngModel)]="items[2][i]" [disabled]="started">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>

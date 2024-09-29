@@ -1,0 +1,68 @@
+table{
+    border: solid black 1px;
+    border-collapse: collapse;
+    box-shadow: 1px 1px 2px black;
+    table-layout: fixed;
+    font-size: 0.9vw;
+}
+
+
+td, th{
+    border-right: 1px solid black;
+    width: 2vw;
+}
+
+tr{
+    border-bottom: 1px solid black;
+}
+
+thead>tr{
+    height: 2.5vw;
+    background-color: #a5d6a7;
+}
+
+input:disabled{
+  background-color: white;
+  color: black;
+}
+
+
+input{
+    text-align: center;
+    border: none;
+    border-bottom: solid 1px;
+    border-color: white;
+    font-size: 0.9vw;
+    width: 2vw;
+    height: 2vw;
+    /*padding: 0.5vw;*/
+    margin: 0.5vw;
+    /*background-color: blue;*/
+    /*box-sizing: border-box;*/
+}
+
+input:focus{
+    outline-width: 0px;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.inputUnderline{
+  /*text-decoration: underline;*/
+  /*border-bottom: solid #CCC 1px;*/
+  border-color: #a5d6a7;
+}
+
+.noInputUnderline{
+  text-decoration: none;
+  border-color: white;
+  /*border-bottom: solid yellow 1px;*/
+}

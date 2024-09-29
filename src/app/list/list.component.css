@@ -1,0 +1,78 @@
+mat-list-item{
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    /*height: 5em !important;*/
+    height: auto !important;
+}
+
+div{
+    height: 100%;
+    width: 100%;
+}
+
+#listHeader{
+    display: flex;
+    /*height: 2.5vw;*/
+    height: 10%;
+    background-color: #a5d6a7;
+    border-bottom: solid black 2px;
+    text-align: left;
+    align-items: flex-end;
+    font-size: 1.5vw;
+}
+
+#mark{
+    flex: 1 1 15%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2vw;
+    height: auto;
+    width: auto;
+    
+}
+
+#stepTimeState{
+    flex: 1 1 25%;
+    font-size: 0.9vw;
+}
+
+.stepContent{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    font-size: 0.9vw;
+}
+
+#stepText{
+    flex: 4 4 60%;
+}
+
+p{
+    display: inline-block;
+    margin: 2%;
+    /*font-size: 0.8vw;*/
+}
+
+mat-list{
+    overflow: auto !important;
+    max-height: inherit;
+    padding-top: 0px;
+    max-height: 89%;
+    height: 90% !important;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    display: inline-table;
+}
+
+
+li:before{
+    content: " = ";
+}

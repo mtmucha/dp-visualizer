@@ -1,0 +1,65 @@
+<div id="helperDiv">
+
+
+    <div id="buttons">
+
+        <ng-container *ngIf="start; then startButton; else resetButton">
+        </ng-container>
+
+        <ng-template #startButton>
+
+            <button mat-raised-button style="background-color:  #a5d6a7" (click)="onStart()">Start</button>
+        </ng-template>
+
+        <ng-template #resetButton>
+
+            <button mat-raised-button style="background-color: #ef5350" (click)="onStart()">Reset</button>
+        </ng-template>
+
+        <button mat-raised-button color="primary" (click)="onBackStep()" [disabled]="stepsList.length == 0 || showingSolution">{{"<<"}}</button>
+        <button mat-raised-button color="primary" (click)="onNextStep()" [disabled]="forwardSteps.length == 0">>></button>
+        <button mat-raised-button color="primary" (click)="showSolution()" [disabled]="!solutionPossible">{{showingSolution == true ? "HideSolution" :  "ShowSolution"}}</button>
+        <mat-slide-toggle [checked]="forward" (change)="setValueForward($event)" [disabled]="!start">{{forward == true ? "odpredu" : "odzadu"}}</mat-slide-toggle>
+
+    </div>
+
+
+    <mat-grid-list cols="6" rowHeight="4:4">
+
+        <mat-grid-tile [colspan]=5 [rowspan]=1>
+            <div>
+                <app-table [bTable]="table" [forward]="forward">
+                </app-table>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]=1 [rowspan]=1>
+            <div >
+                <ng-container *ngIf="problemType == 0; then thenBlock; else elseBlock">
+                </ng-container>
+                <ng-template #thenBlock>
+                    <app-warehouse-values [step]="currentStep" [capacity]="capacity" [forward]="forward"></app-warehouse-values>
+                </ng-template>
+                <ng-template #elseBlock>
+                    <app-knapsack-values [step]="currentStep" [capacity]="capacity" [forward]="forward">
+                    </app-knapsack-values>
+                </ng-template>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]=5 [rowspan]=2>
+            <div id="problemType">
+                <app-graph  [bTable]="bTable" (values)="onStep($event)" [forward]="forward">
+                </app-graph>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]=1 [rowspan]=2>
+            <div>
+                <app-list [stepsList]="stepsList" [problemType]="problemType" [forward]="forward" (id)="onHover($event)" (out)="onOut($event)">
+                </app-list>
+            </div>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+</div>
