@@ -20,11 +20,14 @@ export class KnapsackComponent extends ProblemComponent implements OnInit {
       [0,0,0,0]
     ];
     this.problemType = ProblemType.Knapsack;
-    this.nadpis = "Úloha o batohu";
+    this.nadpis = "Knapsack Problem";
     this.zadanie = 
-    `<p>Je potrebné zachrániť nálezy s čo najväčšiou celkovou hodnotou, súčet hodnôt <b>c<sub>t</sub></b>, z ohrozeného archeologického náleziska,
-    tak aby sme neprekročili kapacitu batohu <b>k</b>.<br>
-    Máme batoh s danou kapacitou <b>k</b>. Jednotlivé hodnoty predmetov <b>c<sub>t</sub></b> a ich hmotnosť <b>w<sub>t</sub></b> sú v uvedené v tabuľke nižšie.</p>`;
+    `<p>It is necessary to save the items with the greatest total value, the sum of values <b>c<sub>t</sub></b>, 
+        from the endangered archaeological site, without exceeding the capacity of the knapsack <b>k</b>. 
+        We have a knapsack with a given capacity <b>k</b>. 
+        The individual values of the items <b>c<sub>t</sub></b> and their weights <b>w<sub>t</sub></b> 
+        are provided in the table below.</p>`
+    
   }
 
   ngOnInit(): void {

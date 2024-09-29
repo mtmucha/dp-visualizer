@@ -12,6 +12,6 @@ ng serve visualizer
 
 ## Examples
 
-![Picture](images/screenshot1.png)
-![Picture](images/screenshot2.png)
+![Picture portraying calculation](images/screenshot4.png)
+![Picture showing solution](images/screenshot5.png)
 

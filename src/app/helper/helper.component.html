@@ -19,7 +19,7 @@
         <button mat-raised-button color="primary" (click)="onBackStep()" [disabled]="stepsList.length == 0 || showingSolution">{{"<<"}}</button>
         <button mat-raised-button color="primary" (click)="onNextStep()" [disabled]="forwardSteps.length == 0">>></button>
         <button mat-raised-button color="primary" (click)="showSolution()" [disabled]="!solutionPossible">{{showingSolution == true ? "HideSolution" :  "ShowSolution"}}</button>
-        <mat-slide-toggle [checked]="forward" (change)="setValueForward($event)" [disabled]="!start">{{forward == true ? "odpredu" : "odzadu"}}</mat-slide-toggle>
+        <mat-slide-toggle [checked]="forward" (change)="setValueForward($event)" [disabled]="!start">{{forward == true ? "forward" : "backward"}}</mat-slide-toggle>
 
     </div>
 

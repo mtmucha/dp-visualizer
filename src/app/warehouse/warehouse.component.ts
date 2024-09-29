@@ -20,12 +20,14 @@ export class WarehouseComponent extends ProblemComponent implements OnInit {
       [2,1,3,1]
     ];
     this.problemType = ProblemType.Stock;
-    this.nadpis = "Úloha o optimálnom riadení skladu";
+    this.nadpis = "Optimal Warehouse Management Problem";
     this.zadanie = 
-    `<p>Zákazník požaduje od firmy celkové množstvo tovaru D, v jednotlivých subdodávkach veľkosti <b>d<sub>t</sub></b>.</br>
-    Vo firme je potrebné rozhodnúť v akých dodávkach <b>x<sub>t</sub></b> ,bude materiál vyrábaný v jednotlivých obdobiach <b>t</b>, tak aby náklady boli minimálne.</br>
-    Je nutné splniť požiadavku <b>d<sub>t</sub></b> v danom období a neprekročiť kapacitu skladu <b>k</b>.</br>
-    Výroba jednej jednotky tovaru si v období <b>t</b> vyžaduje náklady <b>c<sub>t</sub></b>. Jednotlivé hodnoty sú uvedené v tabuľke nižšie.</br></p>`;
+    `<p>A customer requests a total quantity of goods <b>D</b> from the company, to be delivered in partial shipments of size <b>d<sub>t</sub></b>. 
+        The company needs to decide the size of the shipments <b>x<sub>t</sub></b> in each period <b>t</b>, 
+        in such a way that the costs are minimized. It is necessary to meet the demand <b>d<sub>t</sub></b> for the given period without exceeding the warehouse capacity <b>k</b>. 
+        The production of one unit of goods in period <b>t</b> incurs a cost of <b>c<sub>t</sub></b>. 
+        The individual values are provided in the table below.
+     </p>`
     
   }
 
